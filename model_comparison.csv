@@ -1,0 +1,6 @@
+,Accuracy,F1,Precision,Recall,ROC-AUC
+Decision Tree,0.922,0.922,0.923,0.922,0.952
+Random Forest,0.948,0.948,0.952,0.948,0.996
+Naive Bayes,0.612,0.595,0.65,0.612,0.925
+Logistic Reg,0.877,0.876,0.881,0.877,0.983
+XGBoost,0.95,0.95,0.952,0.95,0.996

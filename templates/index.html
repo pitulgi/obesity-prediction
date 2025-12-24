@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Калькулятор риска ожирения</title>
+  </head>
+  <body>
+    <h1>Калькулятор риска ожирения (ML)</h1>
+    <form method="post">
+      {% for f in feature_names %}
+        <label>{{ label_map[f] }}:
+          <input type="text" name="{{ f }}">
+        </label><br>
+      {% endfor %}
+      <button type="submit">Рассчитать</button>
+    </form>
+
+    {% if prediction %}
+      <h2>Результат</h2>
+      <p>Предсказанный класс: <b>{{ prediction }}</b></p>
+
+      <h3>Вероятности классов</h3>
+      <ul>
+        {% for cls, p in proba %}
+          <li>{{ cls }}: {{ p }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Рекомендации по образу жизни</h3>
+      <ul>
+        {% for r in recs %}
+          <li>{{ r }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <hr>
+    <p style="font-size: 0.9em; color: #666;">
+      ВАЖНО: данный сервис носит исключительно информационный и образовательный характер
+      и не является медицинской консультацией или назначением врача.
+      Для постановки диагноза и получения рекомендаций по лечению обратитесь к врачу.
+    </p>
+  </body>
+</html>
